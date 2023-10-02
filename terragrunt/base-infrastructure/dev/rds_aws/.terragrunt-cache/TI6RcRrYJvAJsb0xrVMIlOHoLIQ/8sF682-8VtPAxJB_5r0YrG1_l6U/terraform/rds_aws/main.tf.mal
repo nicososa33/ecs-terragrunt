@@ -1,0 +1,30 @@
+module "db" {
+  source  = "terraform-aws-modules/rds-aurora/aws"
+  version = "~> 3.0"
+
+  name                            = "dev-aurora-db-postgres96"
+
+  engine                          = "aurora-postgresql"
+  engine_version                  = "14.5"
+
+  vpc_id                          = var.vpc_id
+  subnets                         = var.private_subnets
+
+  replica_count                   = 1
+  allowed_security_groups         = ["sg-12345678"]
+  allowed_cidr_blocks             = ["10.0.1.0/24", "10.0.2.0/24"]
+  instance_type                   = var.aws_instance_class
+  storage_encrypted               = true
+  apply_immediately               = true
+  monitoring_interval             = 10
+
+  db_parameter_group_name         = "default"
+  db_cluster_parameter_group_name = "default"
+
+  enabled_cloudwatch_logs_exports = ["postgresql"]
+
+  tags                            = {
+    Environment = "dev"
+    Terraform   = "true"
+  }
+}
