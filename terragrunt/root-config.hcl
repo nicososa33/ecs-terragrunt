@@ -3,7 +3,7 @@ locals {
 
   version_terraform    = " >= 1.0, <= 1.5.7 "
   version_terragrunt   = "=0.51.4"
-  version_provider_aws = " >=4.15.1, <=4.67.0"
+  version_provider_aws = " >=4.67.0"
 
   root_tags = {
     project = "ecs-terraform-terragrunt"

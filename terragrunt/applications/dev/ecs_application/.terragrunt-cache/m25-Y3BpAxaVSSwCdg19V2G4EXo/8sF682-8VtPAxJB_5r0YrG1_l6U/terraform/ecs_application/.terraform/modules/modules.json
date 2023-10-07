@@ -1,1 +1,0 @@
-{"Modules":[{"Key":"ecs_task_execution_role","Source":"../service_role","Dir":"../service_role"},{"Key":"","Source":"","Dir":"."},{"Key":"ecs_autoscale_role","Source":"../service_role","Dir":"../service_role"}]}
